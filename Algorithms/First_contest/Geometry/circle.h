@@ -1,19 +1,20 @@
-#include "vector.h"
+#include "ishape.h"
 #ifndef CIRCLE_H
 #define CIRCLE_H
 namespace geometry {
   class Circle : public IShape {
+    private:
+    int64_t radius_;
+    Point center_;
     public:
-    int64_t radius;
-    Point center;
     Circle();
     Circle(const Point&, const int64_t&);
     ~Circle() override;
     bool CircleIntersectsSegment(Segment) const;
-    IShape& Move(const Vector&) override;
+    Circle& Move(const Vector&) override;
     bool ContainsPoint(const Point&) const override;
     bool CrossesSegment(const Segment&) const override;
-    IShape* Clone() const override;
+    Circle* Clone() const override;
     std::string ToString() const override;
   };
 }
